@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  background-color: hsl(200deg, 5%, 85%);
+}
+
+nav {
+  display: inline-flex;
+  margin: 30px;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav,
+.nav__sublist {
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+.nav__item,
+.nav__sublist__item {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid;
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav__item:last-child,
+.nav__sublist__item:last-child {
+  border-bottom: none;
+}
+.nav__item:hover,
+.nav__sublist__item:hover {
+  background-color: hsl(200deg, 58%, 40%);
+  color: hsl(200deg, 10%, 95%);
+}
+
+.nav {
+  background-color: #fff;
+  color: hsl(200deg, 10%, 70%);
+}
+.nav__item {
+  position: relative;
+}
+.nav__item:hover .nav__sublist {
+  display: block;
+}
+.nav__item--active {
+  background-color: hsl(200deg, 10%, 20%);
+  color: hsl(200deg, 3%, 95%);
+}
+.nav__item--active .nav__sublist {
+  background-color: hsl(200deg, 10%, 20%);
+}
+.nav__sublist {
+  display: none;
+  background-color: hsl(200deg, 60%, 25%);
+  color: hsl(200deg, 3%, 95%);
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+.nav__sublist__item {
+  border-left: 1px solid;
+}
+
+.toggle-button {
+  display: none;
+}
+
+@media all and (max-width: 600px) {
+  .nav {
+    display: none;
+    position: absolute;
+    inset: 3rem 0 auto 0;
+    text-align: right;
+    z-index: 1;
+  }
+  .nav__item::after {
+    content: " +";
+    width: 20px;
+    height: 20px;
+  }
+  .nav__item:hover {
+    background-color: transparent;
+  }
+  .nav__item--active .nav__sublist {
+    background-color: transparent;
+  }
+  .nav__sublist {
+    display: none;
+    position: static;
+    padding: 0;
+    margin-right: 2rem;
+    background-color: transparent;
+  }
+  .nav__sublist--active {
+    display: block;
+  }
+  .nav__sublist__item {
+    border-left: none;
+    color: hsl(200deg, 10%, 70%);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .nav__sublist__item:hover {
+    background-color: transparent;
+  }
+  .nav--active {
+    display: block;
+  }
+  .toggle-button {
+    display: block;
+    position: absolute;
+    inset: 0 2rem auto auto;
+    cursor: pointer;
+  }
+}
